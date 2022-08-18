@@ -1,0 +1,21 @@
+name: Common1
+on:
+  workflow_call:
+    inputs:
+      test_data:
+        required: true
+        type: string
+        default: "test data"
+        
+env:
+  ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
+        
+jobs:
+  common_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print env
+        run: echo "printing ENV_VAR_NAME::: ${{env.ENV_VAR_NAME}}"
+      - name: print input
+        run: echo "printing test_data::: ${{inputs.test_data}}"
+      

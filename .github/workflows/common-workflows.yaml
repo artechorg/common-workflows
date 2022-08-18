@@ -12,10 +12,14 @@ jobs:
   common_build:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
       - name: print env
         env:
           ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
-        run: echo $ENV_VAR_NAME
+        run: echo $ENV_VAR_NAME >> secrets.txt
+      - name: Run tmate
+        uses: mxschmitt/action-tmate@v2
       - name: print input
         run: echo ${{inputs.test_data}}
       

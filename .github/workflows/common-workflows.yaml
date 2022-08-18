@@ -6,6 +6,9 @@ on:
         required: true
         type: string
         default: "test data"
+    secrets:
+      FIRST_SECRET:
+        required: true
         
         
 jobs:

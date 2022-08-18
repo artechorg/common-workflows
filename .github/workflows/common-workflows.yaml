@@ -7,14 +7,14 @@ on:
         type: string
         default: "test data"
         
-env:
-  ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
         
 jobs:
   common_build:
     runs-on: ubuntu-latest
     steps:
       - name: print env
+        env:
+          ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
         run: echo $ENV_VAR_NAME
       - name: print input
         run: echo ${{inputs.test_data}}

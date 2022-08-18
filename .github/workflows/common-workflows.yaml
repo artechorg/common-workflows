@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print env
-        run: echo "printing ENV_VAR_NAME::: ${{env.ENV_VAR_NAME}}"
+        run: echo "printing ENV_VAR_NAME::: $ENV_VAR_NAME"
       - name: print input
         run: echo "printing test_data::: ${{inputs.test_data}}"
       

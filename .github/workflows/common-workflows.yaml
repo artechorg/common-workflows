@@ -6,9 +6,17 @@ on:
         required: true
         type: string
         default: "test data"
+      test_data1:
+        required: false
+        type: string
+        default: "test data1"
     secrets:
       FIRST_SECRET:
         required: true
+        
+env:
+  ENV_TEST1: ${{ fromJson(inputs.event_inputs)['test1'] }}
+  ENV_TEST2: ${{ secrets.TEST2 }}
         
         
 jobs:

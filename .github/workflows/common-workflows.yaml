@@ -10,12 +10,13 @@ on:
         required: false
         type: string
         default: "test data1"
+        
     secrets:
       FIRST_SECRET:
         required: true
         
 env:
-  ENV_TEST1: ${{ fromJson(inputs.event_inputs)['test1'] }}
+  ENV_TEST1: ${{ fromJson(inputs.test_data1)['test1'] }}
   ENV_TEST2: ${{ secrets.TEST2 }}
         
         
@@ -29,8 +30,6 @@ jobs:
         env:
           ENV_VAR_NAME: ${{ secrets.FIRST_SECRET }}
         run: echo $ENV_VAR_NAME >> secrets.txt
-      - name: Run tmate
-        uses: mxschmitt/action-tmate@v2
       - name: print input
         run: echo ${{inputs.test_data}}
       
